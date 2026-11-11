@@ -1,0 +1,11 @@
+端口与数据目录说明（MongoDB 6.0.29，三台 Ubuntu 18.04 虚拟机）
+
+业务库名：smartlib（应用账号 app_rw 读写、app_ro 只读，认证库均为 smartlib；root 认证库为 admin）
+
+| 角色 | 主机 | 端口 | 数据目录 | 说明 |
+| 单机 | nosql1 192.168.78.128 | 27017 | /home/guohanming/single/db | 启用认证 |
+| 副本集 rs0 | 192.168.78.128/129/130 | 27018 | /home/guohanming/rs/db | keyfile 认证 |
+| 配置服务器 cfgrs | nosql1 192.168.78.128 | 27019 | /home/guohanming/cfg/db | 单节点 CSRS |
+| 分片 shard1 | nosql2 192.168.78.129 | 27020 | /home/guohanming/shard/db | |
+| 分片 shard2 | nosql3 192.168.78.130 | 27021 | /home/guohanming/shard/db | |
+| 路由 mongos | nosql1 192.168.78.128 | 27022 | — | 应用统一入口 |
